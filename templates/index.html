@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML</title>
+</head>
+<body>
+<H1>ML</H1>
+
+<form action = "http://localhost:5000/result" method = post>
+         <fieldset>
+            <legend>ML</legend>
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.Age.label }}<br>
+               {{ form.Age }}
+               <br>
+
+               {{ form.DurationPet.label }}
+               {{ form.DurationPet }}
+               <br>
+               {{ form.BreedName.label }}
+               {{ form.BreedName }}
+               <br>
+               {{ form.TotalClaims.label }}
+               {{ form.TotalClaims }}
+               <br>
+               {{ form.TotalClaimsDenied.label }}
+               {{ form.TotalClaimsDenied }}
+               <br>
+               {{ form.TotalClaimsPaid.label }}
+               {{ form.TotalClaimsPaid }}
+               <br>
+               {{ form.ControllingStateCd.label }}
+               {{ form.ControllingStateCd }}
+               <br>
+               {{ form.PolicyForm.label }}
+               {{ form.PolicyForm }}
+               <br>
+               {{ form.LastAnnualPremiumAmt.label }}
+               {{ form.LastAnnualPremiumAmt }}
+               <br>
+               {{ form.CopayPct.label }}
+               {{ form.CopayPct }}
+               <br>
+               {{ form.InitialPremiumAmtPriorYr.label }}
+               {{ form.InitialPremiumAmtPriorYr }}
+               <br>
+               {{ form.InitialWrittenPremiumAmt.label }}
+               {{ form.InitialWrittenPremiumAmt }}
+               <br>
+
+               {{ form.LastAnnualPremiumAmtPriorYr.label }}
+               {{ form.LastAnnualPremiumAmtPriorYr }}
+               <br>
+
+               {{ form.submit }}
+            </div>
+
+         </fieldset>
+      </form>
+</body>
+</html>
