@@ -63,7 +63,7 @@ def result():
 
         churn_percentage = result_bool[1]
 
-        result = "The policy will be canceled with {}% probability".format(int(churn_percentage*100))
+        result = "{}% ".format(int(churn_percentage*100))
 
         return render_template("result.html", result=result)
 
