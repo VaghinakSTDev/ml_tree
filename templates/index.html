@@ -85,14 +85,9 @@
                <div class="input-group">
                   <select id="ControllingStateCd" name="ControllingStateCd" required="">
                      <option value="" disabled selected>Controlling State Cd</option>
-                     <option value="Ar">Ar</option>
-                     <option value="Mi">Mi</option>
-                     <option value="Oh">Oh</option>
-                     <option value="HI">HI</option>
-                     <option value="Ns">Ns</option>
-                     <option value="Wa">Wa</option>
-                     <option value="BC">BC</option>
-                     <option value="MA">MA</option>
+                     {% for option in form.ControllingStateCd %}
+                      <option value="Ar">{{ option }}</option>
+                      {% endfor %}
                   </select>
                </div>
 
