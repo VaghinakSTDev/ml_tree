@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>ML</title>
+   <link rel="stylesheet" href="{{ url_for('static',filename='sass/main.css') }}">
 </head>
 <body>
-<h2>{{ result }}</h2>
+<main>
+   <section class="banner">
+      <div class="banner-bg" style="background-image: url('images/banner-bg.jpg')">
+         <img class="petplan-logo" src="https://dev.www.gopetplan.dev/themes/custom/petplan_codeNtheory/images/logo-r.png"
+              alt="petplan logo">
+         <div class="box">
+            <h2>The policy will be canceled with <strong>{{ result }}</strong> probability</h2>
 
-<p><a href="{{ url_for('index') }}">Try again!</a></p>
-<href></href>
+            <div class="btn-group">
+               <a href="{{ url_for('index') }}" class="btn">Try again</a>
+            </div>
+         </div>
+         <div class="footer-info">
+            <span>Powered by</span>
+            <a href="https://st-dev.com/">
+               <img src="./images/stdev-logo.svg" alt="">
+            </a>
+         </div>
+      </div>
+   </section>
+</main>
 </body>
 </html>
