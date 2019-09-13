@@ -1,3 +1,11 @@
-.xlsx
-.idea
+utility_data/
+logs/
+data/
+.idea/
+*.*.xlsx
+*.*.csv
+*tmp.py
 *.pyc
+*.xml
+*.mnn
+*.pickle
