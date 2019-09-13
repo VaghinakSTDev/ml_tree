@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5000/ -->
+<html lang="en" class="gr__127_0_0_1">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ML</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='sass/main.css') }}">
+</head>
+<body data-gr-c-s-loaded="true"
+      style="background-image: url('{{ url_for('static',filename='images/banner-bg.jpg') }}')">
+<main>
+    <img class="petplan-logo" src="https://dev.www.gopetplan.dev/themes/custom/petplan_codeNtheory/images/logo-r.png"
+         alt="petplan logo">
+    <div class="box">
+        <h1>Business Intelligence</h1>
+        <form name="sample_form" action="{{ url_for('result') }}" method="post">
+            <div class="input-group">
+                <input id="Age" name="Age" required="" type="text" value="" placeholder="Age">
+            </div>
+
+            <div class="input-group">
+                <input id="DurationPet" name="DurationPet" required="" type="text" value="" placeholder="Duration Pet">
+            </div>
+
+            <div class="input-group">
+                <select id="BreedName" name="BreedName" required="">
+                    <option value="" disabled selected>Breed Name</option>
+                    <option value="Rhodesian Ridgeback">Rhodesian Ridgeback</option>
+                    <option value="Weimaraner">Weimaraner</option>
+                    <option value="German Pinscher">German Pinscher</option>
+                    <option value="Pembroke Welsh Corgi">Pembroke Welsh Corgi</option>
+                    <option value="Schnauzer - standard">Schnauzer - standard</option>
+                    <option value="English Cocker Spaniel Mix">English Cocker Spaniel Mix</option>
+                    <option value="Bulldog Mix">Bulldog Mix</option>
+                    <option value="Manx">Manx</option>
+                    <option value="Pug Mix">Pug Mix</option>
+                    <option value="Australian Shepherd">Australian Shepherd</option>
+                    <option value="Exotic Longhair">Exotic Longhair</option>
+                    <option value="Bengal">Bengal</option>
+                    <option value="Elkhound">Elkhound</option>
+                    <option value="Cane Corso">Cane Corso</option>
+                    <option value="Anatolian Shepherd Dog">Anatolian Shepherd Dog</option>
+                    <option value="Cairn Terrier Mix">Cairn Terrier Mix</option>
+                    <option value="Afghan Hound">Afghan Hound</option>
+                    <option value="Mastiff">Mastiff</option>
+                    <option value="Borzoi">Borzoi</option>
+                    <option value="Cirneco dell&#39;Etna">Cirneco dell'Etna</option>
+                    <option value="Chow Chow Mix">Chow Chow Mix</option>
+                    <option value="Komondor">Komondor</option>
+                    <option value="Spanish Water Dog">Spanish Water Dog</option>
+                    <option value="Otterhound">Otterhound</option>
+                    <option value="Labrador Retriever - Chocolate">Labrador Retriever - Chocolate</option>
+                    <option value="Flat-coated Retriever">Flat-coated Retriever</option>
+                    <option value="Great Dane">Great Dane</option>
+                    <option value="Miniature Schnauzer">Miniature Schnauzer</option>
+                    <option value="Deutscher Wachtelhund">Deutscher Wachtelhund</option>
+                    <option value="Shetland Sheepdog Mix">Shetland Sheepdog Mix</option>
+                    <option value="Abyssinian">Abyssinian</option>
+                    <option value="Leonberger">Leonberger</option>
+                    <option value="Chihuahua long-haired">Chihuahua long-haired</option>
+                    <option value="Shiba Inu">Shiba Inu</option>
+                    <option value="Bernese Mountain Dog Mix">Bernese Mountain Dog Mix</option>
+                    <option value="Llewellin Setter">Llewellin Setter</option>
+                    <option value="Tibetan Terrier">Tibetan Terrier</option>
+                    <option value="Airedale Mix">Airedale Mix</option>
+                    <option value="Poodle - Miniature">Poodle - Miniature</option>
+                    <option value="Bosnian Coarse Haired Hound">Bosnian Coarse Haired Hound</option>
+                    <option value="Briquet Griffon Vendeen">Briquet Griffon Vendeen</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input id="TotalClaims" name="TotalClaims" required="" type="text" value="" placeholder="Total Claims">
+            </div>
+
+            <div class="input-group">
+                <input id="TotalClaimsDenied" name="TotalClaimsDenied" required="" type="text" value=""
+                       placeholder="Total Claims Denied">
+            </div>
+
+            <div class="input-group">
+                <input id="TotalClaimsPaid" name="TotalClaimsPaid" required="" type="text" value=""
+                       placeholder="Total Claims Paid">
+            </div>
+
+            <div class="input-group">
+                <select id="ControllingStateCd" name="ControllingStateCd" required="">
+                    <option value="" disabled selected>Controlling State Cd</option>
+                    {% for option in sample_form.ControllingStateCd %}
+                        <option value="Ar">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input id="PolicyForm" name="PolicyForm" required="" type="text" value="" placeholder="Policy Form">
+            </div>
+
+            <div class="input-group">
+                <input id="LastAnnualPremiumAmt" name="LastAnnualPremiumAmt" required="" type="text" value=""
+                       placeholder="Last Annual Premium Amt">
+            </div>
+
+            <div class="input-group">
+                <input id="CopayPct" name="CopayPct" required="" type="text" value="" placeholder="Copay Pct">
+            </div>
+
+            <div class="input-group">
+                <input id="InitialPremiumAmtPriorYr" name="InitialPremiumAmtPriorYr" required="" type="text" value=""
+                       placeholder="Initial Premium Amt Prior Yr">
+            </div>
+
+            <div class="input-group">
+                <input id="InitialWrittenPremiumAmt" name="InitialWrittenPremiumAmt" required="" type="text" value=""
+                       placeholder="Initial Written Premium Amt">
+            </div>
+
+            <div class="input-group">
+                <input id="LastAnnualPremiumAmtPriorYr" name="LastAnnualPremiumAmtPriorYr" required="" type="text"
+                       value="" placeholder="Last Annual Premium Amt Prior Yr">
+            </div>
+
+            <div class="input-group">
+                <input id="DurationPolicy" name="DurationPolicy" required="" type="text"
+                       value="" placeholder="Duration Policy">
+            </div>
+
+            <div class="btn-group">
+                <input id="submit" name="submit" type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+    </div>
+    <h2>OR</h2>
+    <div class="box box-with-file-upload">
+        <h1>Submit with uploading .xlsx file</h1>
+        <form name="upload_form" id="upload_form" method="post" enctype=multipart/form-data>
+            <div class="input-group full-width">
+                <input type="file" name="file" class="hide" id="upload-file">
+                <label for="upload-file" class="upload-label m-auto">Please, upload your file!
+                    <img src="../static/images/upload.svg" alt="">
+                </label>
+            </div>
+             <div class="btn-group">
+                <input id="file_submit" name="submit" type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+    </div>
+    <div class="footer-info">
+        <span>Powered by</span>
+        <a href="https://st-dev.com/">
+            <img src="{{ url_for('static',filename='images/stdev-logo.svg') }}">
+        </a>
+    </div>
+</main>
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+
+   $("#upload_form").submit(function(e) {
+    $("#file_submit").attr("disabled", true);
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form_data = new FormData(this);
+    var filename = this[0].files[0].name;
+    var url = "{{ url_for('result_file') }}";
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: form_data,
+        contentType: false,
+        cache: false,
+        xhr:function(){
+            var xhr = new XMLHttpRequest();
+            xhr.responseType= 'blob'
+            return xhr;
+        },
+        processData: false,
+        success: function(data) {
+            var href = URL.createObjectURL(data);
+            var link = document.createElement('a');
+            link.download = filename;
+            link.href = href;
+            URL.revokeObjectURL(data);
+            link.click();
+            $('#file_submit').removeAttr("disabled");
+        },
+     });
+   });
+</script>
+{% endblock %}
+
+</body>
+</html>
