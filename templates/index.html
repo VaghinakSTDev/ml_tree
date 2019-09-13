@@ -13,7 +13,7 @@
          alt="petplan logo">
     <div class="box">
         <h1>Business Intelligence</h1>
-        <form action="{{ url_for('result') }}" method="post">
+        <form name="sample_form" action="{{ url_for('result') }}" method="post">
             <div class="input-group">
                 <input id="Age" name="Age" required="" type="text" value="" placeholder="Age">
             </div>
@@ -86,7 +86,7 @@
             <div class="input-group">
                 <select id="ControllingStateCd" name="ControllingStateCd" required="">
                     <option value="" disabled selected>Controlling State Cd</option>
-                    {% for option in form.ControllingStateCd %}
+                    {% for option in sample_form.ControllingStateCd %}
                         <option value="Ar">{{ option }}</option>
                     {% endfor %}
                 </select>
@@ -120,12 +120,31 @@
                        value="" placeholder="Last Annual Premium Amt Prior Yr">
             </div>
 
+            <div class="input-group">
+                <input id="DurationPolicy" name="DurationPolicy" required="" type="text"
+                       value="" placeholder="Duration Policy">
+            </div>
+
             <div class="btn-group">
                 <input id="submit" name="submit" type="submit" value="Submit" class="btn">
             </div>
         </form>
     </div>
-
+    <h2>OR</h2>
+    <div class="box">
+        <h1>Submit with uploading .xlsx file</h1>
+        <form name="upload_form" action="{{ url_for('result_file') }}" method="post" enctype=multipart/form-data>
+            <div class="input-group full-width">
+                <input type="file" name="file" class="hide" id="upload-file">
+                <label for="upload-file" class="upload-label m-auto">Please, upload your file!
+                    <img src="../static/images/upload.svg" alt="">
+                </label>
+            </div>
+             <div class="btn-group">
+                <input id="submit" name="submit" type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+    </div>
     <div class="footer-info">
         <span>Powered by</span>
         <a href="https://st-dev.com/">
