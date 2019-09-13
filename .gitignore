@@ -1,6 +1,5 @@
 utility_data/
 logs/
-static/
 data/
 .idea/
 *.*.xlsx

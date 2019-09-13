@@ -131,9 +131,9 @@
         </form>
     </div>
     <h2>OR</h2>
-    <div class="box">
+    <div class="box box-with-file-upload">
         <h1>Submit with uploading .xlsx file</h1>
-        <form name="upload_form" action="{{ url_for('result_file') }}" method="post" enctype=multipart/form-data>
+        <form name="upload_form" id="upload_form" method="post" enctype=multipart/form-data>
             <div class="input-group full-width">
                 <input type="file" name="file" class="hide" id="upload-file">
                 <label for="upload-file" class="upload-label m-auto">Please, upload your file!
@@ -141,7 +141,7 @@
                 </label>
             </div>
              <div class="btn-group">
-                <input id="submit" name="submit" type="submit" value="Submit" class="btn">
+                <input id="file_submit" name="submit" type="submit" value="Submit" class="btn">
             </div>
         </form>
     </div>
@@ -152,5 +152,44 @@
         </a>
     </div>
 </main>
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+
+   $("#upload_form").submit(function(e) {
+    $("#file_submit").attr("disabled", true);
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form_data = new FormData(this);
+    var filename = this[0].files[0].name;
+    var url = "{{ url_for('result_file') }}";
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: form_data,
+        contentType: false,
+        cache: false,
+        xhr:function(){
+            var xhr = new XMLHttpRequest();
+            xhr.responseType= 'blob'
+            return xhr;
+        },
+        processData: false,
+        success: function(data) {
+            var href = URL.createObjectURL(data);
+            var link = document.createElement('a');
+            link.download = filename;
+            link.href = href;
+            URL.revokeObjectURL(data);
+            link.click();
+            $('#file_submit').removeAttr("disabled");
+        },
+     });
+   });
+</script>
+{% endblock %}
+
 </body>
 </html>
