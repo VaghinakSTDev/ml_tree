@@ -1,8 +1,7 @@
 utility_data/
 logs/
-data/
 .idea/
-*.*.xlsx
+*.xlsx
 *.*.csv
 *tmp.py
 *.pyc
