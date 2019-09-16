@@ -171,7 +171,7 @@
         data: form_data,
         contentType: false,
         cache: false,
-        timeout: 300000,
+        timeout: 3000000,
         xhr:function(){
             var xhr = new XMLHttpRequest();
             xhr.responseType= 'blob'
@@ -186,7 +186,11 @@
             URL.revokeObjectURL(data);
             link.click();
             $('#file_submit').removeAttr("disabled");
+            $("#upload_form").reset();
         },
+        error: function(err) {
+            console.log(err);
+        }
      });
    });
 </script>
