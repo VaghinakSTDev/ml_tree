@@ -171,6 +171,7 @@
         data: form_data,
         contentType: false,
         cache: false,
+        timeout: 30000,
         xhr:function(){
             var xhr = new XMLHttpRequest();
             xhr.responseType= 'blob'
