@@ -1,9 +1,10 @@
 from io import BytesIO
 import numpy as np
 
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, Response
 from wtforms import Form,  SubmitField, FloatField, SelectField, FileField
 from wtforms.validators import DataRequired
+from werkzeug.wsgi import FileWrapper
 # import tensorflow
 from tensorflow.keras.models import load_model
 from tree import Tree
@@ -80,18 +81,20 @@ def result_file():
 
         df = pd.read_excel(request.files.get('file'))
 
-        X = handle_data(df[INPUT_COLUMNS], breads_encoder, states_encoder)
+        data = handle_data(df[INPUT_COLUMNS], breads_encoder, states_encoder)
 
         model = get_model()
-        result = model.predict_proba(X)
-        df['prediction'] = result.round(2)
+
+        df['prediction'] = model.predict_proba(data).round(2)
+
         output = BytesIO()
         writer = pd.ExcelWriter(output, engine='xlsxwriter')
 
         df.to_excel(writer, startrow=0, merge_cells=False)
         writer.close()
         output.seek(0)
-        return send_file(output, attachment_filename="testing.xlsx", as_attachment=True)
+
+        return Response(output, mimetype="application/vnd.ms-excel")
 
 
 if __name__ == "__main__":

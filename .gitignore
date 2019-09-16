@@ -2,7 +2,7 @@ utility_data/
 logs/
 .idea/
 *.xlsx
-*.*.csv
+*.csv
 *tmp.py
 *.pyc
 *.xml
