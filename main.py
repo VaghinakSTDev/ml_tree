@@ -83,9 +83,11 @@ def result_file():
 
         data = handle_data(df[INPUT_COLUMNS], breads_encoder, states_encoder)
 
-        model = get_model()
+        model = load_model('data/STdevChurnData_binary_model.h5')
+        a = model.predict_classes(data)
+        # df['prediction'] = [1 if i > 0.7 else 0 for i in a]
+        df['prediction'] = model.predict_proba(data).round()
 
-        df['prediction'] = model.predict_proba(data).round(2)
 
         output = BytesIO()
         writer = pd.ExcelWriter(output, engine='xlsxwriter')
@@ -94,9 +96,9 @@ def result_file():
         writer.close()
         output.seek(0)
 
+
         return Response(output, mimetype="application/vnd.ms-excel")
 
 
 if __name__ == "__main__":
-
     app.run(host='0.0.0.0')
